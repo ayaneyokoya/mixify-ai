@@ -31,16 +31,16 @@ const SongAnalyzer = () => {
   };
 
   return (
-    <div>
-        <h2>Mixify.AI</h2>
+    <div className="MainHeader">
+        Mixify.AI
       <form onSubmit={analyzeSong}>
-        <input 
+        <input className="MainForm"
           type="text"
           value={songQuery}
           onChange={(e) => setSongQuery(e.target.value)}
           placeholder="Enter song title"
         />
-        <button type="submit">Analyze</button>
+        <button className="MainFormButton" type="submit">Analyze</button>
       </form>
 
       {error && <p>{error}</p>}
@@ -48,29 +48,29 @@ const SongAnalyzer = () => {
       {songData && (
         <div>
           <h2>{songData.track_info.track_name} by {songData.track_info.artist_name}</h2>
-          <img src={songData.track_info.track_image} alt="Album cover" />
+          <img src={songData.track_info.track_image} className="InputAlbumCover" />
           <h3>Audio Features:</h3>
-          <ul>
+          <div className="InputDetail">
             <li>Danceability: {songData.audio_features.danceability}</li>
             <li>Energy: {songData.audio_features.energy}</li>
             <li>Tempo: {songData.audio_features.tempo} BPM</li>
             {/* Add other features here */}
-          </ul>
+          </div>
           <button onClick={fetchRecommendations}>Get Recommendations</button>
         </div>
       )}
 
       {recommendations.length > 0 && (
-        <div>
+        <div className="Recommendations">
           <h3>Recommended Tracks:</h3>
-          <ul>
+          <div className="Songs">
             {recommendations.map((track, index) => (
-              <li key={index}>
-                <img src={track.album_image} alt="Album cover" />
-                {track.track_name} by {track.artist_name}
-              </li>
+              <div className="SongName" key={index}>
+                <img src={track.album_image} className="AlbumCover" />
+                <div className="TrackName">{track.track_name}  by {track.artist_name}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

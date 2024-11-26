@@ -1,29 +1,135 @@
-.App-header {
-  background-color: #282c34;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, hsla(333, 100%, 53%, 1) 1%, hsla(33, 94%, 57%, 1));
+}
+
+.App {
+  text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  position: relative;
+  z-index: 1; 
+}
+
+.MainHeader {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, .8);
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+.MainForm {
+  border-radius: 1rem;
+  border: solid .2rem rgba(255, 255, 255, .5);
+  width: 15rem;
+  height: 2rem;
+  background: linear-gradient(135deg, hsla(333, 100%, 53%, .2) 1%, hsla(33, 94%, 57%, .2));
+  color:  white;
+}
+.MainForm::placeholder {
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-size: 1rem;
+}
+.MainForm:focus {
+  outline: none;
+}
+
+Button {
+  padding: .6rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, hsla(333, 100%, 53%, .2) 1%, hsla(33, 94%, 57%, .2));
+  border: solid .2rem rgba(255, 255, 255, .5);
   color: white;
 }
 
-form {
-  margin: 20px 0;
-}
-
-input {
-  padding: 10px;
-  width: 300px;
-  margin-right: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
 h2 {
-  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+h3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.75rem;
+}
+.InputDetail {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(158, 217, 249, 0.8);
+  border-radius: 50%;
+  animation: moveParticle 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes moveParticle {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(calc(100vw - 50px), calc(100vh - 50px)) scale(1);
+    opacity: 0;
+  }
+}
+
+.InputAlbumCover{
+  width: 30rem;
+  border-radius: 2rem;
+}
+
+.Recommendations {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Songs {
+  font-size: 1.5rem;
+  gap: 1rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+}
+.h3 {
+  font-size: 4rem;
+  color: white !important;
+}
+.AlbumCover {
+  width: 20rem;
+  border-radius: 2rem;
+  transition: transform 0.3s ease;
+}
+.AlbumCover:hover {
+  transform: scale(1.05);
+
+}
+.TrackName {
+  color: white;
+  font-weight: 700;
 }
